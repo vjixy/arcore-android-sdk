@@ -30,13 +30,14 @@ import java.util.concurrent.BlockingQueue;
 public final class TapHelper implements OnTouchListener {
   private final GestureDetector gestureDetector;
   private final BlockingQueue<MotionEvent> queuedSingleTaps = new ArrayBlockingQueue<>(16);
-
+  private boolean create_one = true;
   /**
    * Creates the tap helper.
    *
    * @param context the application's context.
    */
   public TapHelper(Context context) {
+
     gestureDetector =
         new GestureDetector(
             context,
@@ -53,6 +54,7 @@ public final class TapHelper implements OnTouchListener {
                 return true;
               }
             });
+
   }
 
   /**

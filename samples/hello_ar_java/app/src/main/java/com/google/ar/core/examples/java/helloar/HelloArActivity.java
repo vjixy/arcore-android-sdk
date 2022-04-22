@@ -416,7 +416,7 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
               Texture.WrapMode.CLAMP_TO_EDGE,
               Texture.ColorFormat.LINEAR);
 
-      virtualObjectMesh = Mesh.createFromAsset(render, "models/pawn.obj");
+      virtualObjectMesh = Mesh.createFromAsset(render, "models/monkey.obj");
       virtualObjectShader =
           Shader.createFromAssets(
                   render,
@@ -619,6 +619,7 @@ public class HelloArActivity extends AppCompatActivity implements SampleRender.R
     MotionEvent tap = tapHelper.poll();
     if (tap != null && camera.getTrackingState() == TrackingState.TRACKING) {
       List<HitResult> hitResultList;
+      Log.d("We got a touch:", "X: "+tap.getX()+" Y:"+tap.getY());
       if (instantPlacementSettings.isInstantPlacementEnabled()) {
         hitResultList =
             frame.hitTestInstantPlacement(tap.getX(), tap.getY(), APPROXIMATE_DISTANCE_METERS);
